@@ -8,6 +8,7 @@ What's all going on in the front-end?
 	iii. Router SetUp
 	iv. Navbar 
 	v. Landing Page
+	vi. Gigs page for freelancers
 
 2. Outsourced Part of The Project to Soumya Roy
 
@@ -16,12 +17,9 @@ What's all going on in the front-end?
 	iii. Landing Page
 
 3. Templates that have not been made. 
-	
-	i. Notification - Freelancer / Client
-	ii. Gigs page for freelancers
-	iii. Projects page for freelancers
-	iv. Proper Connection between whole FrontEnd
-	v. Admin Frontend (will see to it later)
+
+	i. Proper Connection between whole FrontEnd
+	ii. Admin Frontend (will see to it later)
 
 <---------- BackEnd ----------->
 

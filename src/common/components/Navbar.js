@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Frelansir', href: '/', current: true },
   { name: 'Dashboard', href: 'dashboard', current: false },
   { name: 'Team', href: 'team', current: false },
-  { name: 'Projects', href: 'projects', current: false },
+  { name: 'Find Work', href: 'projects', current: false },
   
 ]
 
@@ -39,16 +39,6 @@ export default function Navbar() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  {/* <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="2.jpg"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="2.jpg"
-                    alt="Workflow"
-                  /> */}
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
