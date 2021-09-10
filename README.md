@@ -9,17 +9,17 @@ What's all going on in the front-end?
 	iv. Navbar 
 	v. Landing Page
 	vi. Gigs page for freelancers
+	vii. Profile - Freelancer / Client
+	viii. Landing Page
 
 2. Outsourced Part of The Project to Soumya Roy
 
 	i. Dashboard - Freelancer / Client
-	ii. Profile - Freelancer / Client
-	iii. Landing Page
 
 3. Templates that have not been made. 
 
 	i. Proper Connection between whole FrontEnd
-	ii. Admin Frontend (will see to it later)
+	ii. Admin Frontend  (will see to it later)
 
 <---------- BackEnd ----------->
 
