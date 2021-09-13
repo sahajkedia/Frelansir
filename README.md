@@ -1,3 +1,5 @@
+						 Frelansir :  A new freelancer platform
+		
 <---------- FrontEnd ----------->
 
 What's all going on in the front-end?
@@ -47,5 +49,4 @@ What's all going on in the front-end?
 	v. Temporary Deployement
 	vi. Permanent Deployement
 	
-	#### Frelansir
-	### A new freelancer platform with all the features that any freelancing platform has.
+	
