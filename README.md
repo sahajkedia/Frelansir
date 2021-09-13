@@ -46,3 +46,6 @@ What's all going on in the front-end?
 	iv. Admin Workout 
 	v. Temporary Deployement
 	vi. Permanent Deployement
+	
+	#### Frelansir
+	### A new freelancer platform with all the features that any freelancing platform has.
