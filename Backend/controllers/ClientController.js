@@ -1,21 +1,26 @@
-const dummyData = [{
-    "name":"Sahaj",
-    "id":"1",
-    "skills": ["C++", "Python" , "JavaScript"],
-    "job":
-    {
-        "specialization":"Web Developer",
-        "past":5,
-        "ongoing":2
-    }
-}]
-
-const CLientProfile = (req,res,next)=> {
+import ProposalSchema from "../models/ProposalSchema";
+const CLientProfile = async(req,res,next)=> {
     const cid = req.params.cid;
-   const client =  dummyData.find(c =>{
-        return c.id===cid
-    })
-    res.send(client);
+    let client;
+    
+    try{
+        client = await client.findById(cid);
+        
+    }
+    catch(err){
+        console.log(err)
+        res.status(400).json({
+            "message":"could not complete your request"
+        })
+        return next(err)
+    }
+    if(!client){
+        const error = res.status(400).json({
+            "message":"could not complete your request"
+        })
+        return next(err)
+    }
+    res.json({client:client})
 }
 
 const CLientSignup = (req,res,next)=> {

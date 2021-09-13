@@ -1,5 +1,5 @@
 const Freelancer = require ('../models/F_Schema')
-
+const ProposalSchema = require('../models/ProposalSchema');
 
 const FrelansirProfile = async(req,res,next)=> {
     const fid = req.params.fid;

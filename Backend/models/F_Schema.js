@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const frelansirSchema = new Schema({
@@ -17,11 +16,11 @@ const frelansirSchema = new Schema({
         minlength: 8,
         maxlength : 12
     },
-    skillBasket : [{
+    skillBasket : {
         type : String,
         min : 3,
         required : true,
-    }],
+    },
     passion : {
         type: String,
         required : true,
