@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const frelansirSchema = new Schema({
-    fullname : {
+    name : {
         type: String,
         required : true,
         minlength: 3
@@ -12,24 +12,24 @@ const frelansirSchema = new Schema({
     },
     password : {
         type: String,
-        required : true,
+        
         minlength: 8,
         maxlength : 12
     },
     skillBasket : {
         type : String,
         min : 3,
-        required : true,
+        
     },
     passion : {
         type: String,
-        required : true,
+        
         maxlength : 120,
         minlength : 5
     },
     description : {
         type: String,
-        required : true,
+        
         minlength : 120,
         maxlength : 300
     },

@@ -8,7 +8,7 @@ const ProposalSchema = new Schema({
         trim:true
     },
     file:{
-        type:File,
+        // type:File,
     }
 }
 )

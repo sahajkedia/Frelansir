@@ -1,4 +1,4 @@
-import ProposalSchema from "../models/ProposalSchema";
+// import Proposal from "../models/ProposalSchema";
 const CLientProfile = async(req,res,next)=> {
     const cid = req.params.cid;
     let client;
