@@ -1,0 +1,49 @@
+.container{
+    background-color: #fcfceb;
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 40px;
+    color: #2a362c;
+}
+
+.btn {
+    
+    background-color: #caf0c5;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  .success:hover {
+    background-color: #04AA6D;
+    color: white;
+  }
+.title{
+    margin-top: 10px;
+    text-decoration: underline;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+.des{
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.linear{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
