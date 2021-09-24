@@ -7,6 +7,8 @@ import Projects from '../freelancers/pages/Projects/Projects'
 import Notifications from '../common/Notifications'
 import ClientDashboard from '../clients/pages/Dashboard'
 import ClientProfile from '../clients/pages/Profile'
+import Signin from './Signin';
+import Signup from './Signup';
    
    function Routing() {
      return (
@@ -26,7 +28,12 @@ import ClientProfile from '../clients/pages/Profile'
     <Route path="/frelansir/profile" >
       <FreelancerProfile />
     </Route>
-    
+    <Route path="/frelansir/signin" >
+      <Signin />
+    </Route>
+    <Route path="/frelansir/signup" >
+      <Signup />
+    </Route>
     <Route path="/frelansir/projects" >
       <Projects />
     </Route>
