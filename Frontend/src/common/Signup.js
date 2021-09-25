@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 function Signup() {
 
@@ -76,7 +76,7 @@ else{
 
     <div>
     <label className="block mb-1 font-bold text-gray-500" >About You</label>
-		<textarea required="" name="message" id="" class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" spellcheck="false" name="description"></textarea>							
+		<textarea required  class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4" spellcheck="false" name="description"></textarea>							
 		</div>
 
     <div>

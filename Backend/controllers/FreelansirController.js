@@ -1,17 +1,12 @@
 const Freelancer = require ('../models/F_Schema')
 const ProposalSchema = require('../models/ProposalSchema');
-const {OAuth2Client} = require('google-auth-library')
-const jwt = require('jsonwebtoken');
-const { eventNames } = require('../models/F_Schema');
-const client = new OAuth2Client(process.env.GOOGLELINK)
-
 
 const FrelansirProfile = async(req,res,next)=> {
-    const fid = req.params.fid;
+    const email = req.body
     let freelancer;
     
     try{
-        freelancer = await Freelancer.findById(fid);
+        freelancer = await Freelancer.findOne({email});
         
     }
     catch(err){
@@ -33,37 +28,81 @@ const FrelansirProfile = async(req,res,next)=> {
 
 
 const FrelansirSignup = async(req,res,next) => {
-
-    const { fullname,email,password,skillbasket,passion,description } = req.body;
     
+    const { name,email,password,skillbasket,passion,description } = req.body;
+    
+    if( !name || !password || !skillbasket || !email || !passion || !description  )
+            return res.status(422).json({
+                "error" : "Something is missing"
+            })
+            const userExists = await Freelancer.findOne({email})
+            
+        if(!userExists){
 
-    const newfreelancer = new Freelancer({
-        fullname,
-        email,
-        password,
-        skillbasket,
-        passion,
-        description
-    })
-    try{
-        await newfreelancer.save()
-        res.status(201).json({
-            details:newfreelancer
+            const newfreelancer = new Freelancer({
+                name : name,
+                email : email,
+                password : password,
+                skillbasket : skillbasket,
+                passion : passion,
+                description:description
+            })
+        
+            
+            try{
+                await newfreelancer.save()
+                res.status(201).json({
+                    details:newfreelancer
+                })
+                console.log('Added')
+            }
+            catch(e){
+                res.status(400).json({
+                   "message":"could not complete your request"
+               })
+               console.log('error' + e)
+               return next(e)
+            }
+
+        }
+    else{
+        return res.status(400).json({
+            "message":"could not complete your request"
         })
     }
-    catch(e){
-        res.status(400).json({
-           "message":"could not complete your request"
-       })
-       return next(e)
-    }
+    
     
 }
 
 
-const FrelansirSignin = (req,res,next)=> {
-    return res.send("Signin is a good idea for ya!");
-}
+const FrelansirSignin = async (req,res,next)=> {
+    const {email, password} = req.body;
+    Freelancer.findOne({email}).exec((err,freelancer) => {
+        if(err){
+            console.log(err)
+            res.status(400).json({
+                "msg":"Create an account first"
+            })
+        }
+
+        else{
+                if(freelancer.password !== password){
+                    res.status(400).json({
+                        "msg":"Wrong Credentials"
+                    })
+                }
+                else{
+                    res.status(200).json({
+                        "msg":"User Verified"
+                    })
+                }
+        }
+    })
+
+    }
+        
+
+
 
 
 
@@ -71,72 +110,9 @@ const FrelansirDashboard = (req,res,next)=> {
     return res.send("Keep Looking");
 }
 
-const loginorsignup = (req,res,next) => {
-    const {tokenId }= req.body;
-    client.verifyIdToken({idToken : tokenId, audience : process.env.GOOGLELINK}).then(response => {
-        const {email,email_verified,name} = response.payload
-        if(email_verified){
-            
-
-            Freelancer.findOne({email:email}).exec((err, user) => {
-                
-               if(err){
-                   console.log(err)
-                   res.status(400).json({
-                       "msg" : "Something went wrong"
-                   })
-               }
-               else{
-                   if(user){
-                       const token = jwt.sign({
-                           id:user._id
-                       },
-                       process.env.JWT_TOKEN,
-                        {expiresIn:'10d'})
-                       const { _id, name, email} = user
-                       res.json({
-                           token,
-                           "msg":"Loogen In"
-                       })
-
-                   }
-                   else{
-                       let newUser = new Freelancer({name,email});
-                    newUser.save((err,data) => {
-                        if(err){
-                            console.log(err)
-
-                            res.status(400).json({
-                                "msg" : "Something went wrong"
-                            })
-                        }  
-                        else{
-                            const token = jwt.sign({
-                                id:user._id
-                            },
-                            'Abba Nahi Maanenge',
-                             {expiresIn:'10d'})
-                            const { _id, name, email} = data
-                            res.json({
-                                token,
-                                "msg":"Loogen In"
-                            })
-                        } 
-
-
-
-
-                    })
-                   }
-               } 
-            })
-        }
-    })
-}
 
 
 exports.FrelansirProfile = FrelansirProfile;
 exports.FrelansirSignup= FrelansirSignup
 exports.FrelansirSignin = FrelansirSignin
 exports.FrelansirDashboard = FrelansirDashboard;
-exports.loginorsignup = loginorsignup;

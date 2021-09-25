@@ -12,26 +12,26 @@ const frelansirSchema = new Schema({
     },
     password : {
         type: String,
-        
+        required : true,
         minlength: 8,
         maxlength : 12
     },
-    skillBasket : {
+    skillbasket : {
         type : String,
         min : 3,
-        
+        required : true,
     },
     passion : {
         type: String,
-        
+        required : true,
         maxlength : 120,
         minlength : 5
     },
     description : {
         type: String,
-        
-        minlength : 120,
-        maxlength : 300
+        required : true,
+        // minlength : 120,
+        // maxlength : 300
     },
     image : {
         type: String,

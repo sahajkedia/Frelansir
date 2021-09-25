@@ -4,7 +4,7 @@ import img from './bg.svg'
 import devices from './devices.svg'
 function Homepage() {
     return (
-<body className="leading-normal tracking-normal text-gray-900" style={{fontFamily: 'Source Sans Pro'|| 'sans-serif'}}>
+<div className="leading-normal tracking-normal text-gray-900" style={{fontFamily: 'Source Sans Pro'|| 'sans-serif'}}>
     
 <div className="h-screen pb-14 bg-right bg-cover" style={{backgroundImage:`url(${img})`}}>
 	
@@ -41,7 +41,7 @@ function Homepage() {
 		
 		
 		<div className="w-full xl:w-3/5 py-6 overflow-y-hidden">
-			<img className="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src={devices} />
+			<img className="w-5/6 mx-auto lg:mr-0 slide-in-bottom" src={devices} alt="devices" />
 		</div>
 		
 	</div>
@@ -51,7 +51,7 @@ function Homepage() {
 
 
 
-</body>
+</div>
     )
 }
 

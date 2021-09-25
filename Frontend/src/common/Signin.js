@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { Redirect } from 'react-router'
 function Signin() {
 
   
@@ -22,10 +22,12 @@ function Signin() {
  fetch('http://localhost:4000/api/frelansir/signin', requestOptions)
 .then(response => {
   console.log(response)
-  if(response.status=='200'){
+  if(response.status==='200'){
     console.log("Signed In")
     
   }
+
+  <Redirect to='/frelansir/profile' />
 });
 
             
