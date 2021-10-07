@@ -12,15 +12,17 @@ What's all going on in the front-end?
 	iv. Navbar 
 	v. Landing Page
 	vi. Gigs page for freelancers
-	vii. Dashboard - Freelancer / Client
-	viii. Profile - Freelancer / Client
-	ix. Landing Page
 
-2. Templates that have not been made. 
+2. Outsourced Part of The Project to Soumya Roy
 
-	i. Admin Frontend (will see to it later)
-	
-	
+	i. Dashboard - Freelancer / Client
+	ii. Profile - Freelancer / Client
+	iii. Landing Page
+
+3. Templates that have not been made. 
+
+	i. Proper Connection between whole FrontEnd
+	ii. Admin Frontend (will see to it later)
 
 <---------- BackEnd ----------->
 
@@ -28,10 +30,10 @@ What's all going on in the front-end?
 	i. Express Routing for Both Freelancer and CLient
 	ii. Freelancer model/schema
 	iii. Database Connectivity - MONGODB
-	iv. freelancer controller
+	iv. Some parts of freelancer controller
 	
 2. Things that need to be done for this REST API to work
-	i. Client Controller 
+	i. Client Controller and Freelancer controller
 	ii. Database for gigs
 	iii. Client Schema
 	iv. Admin Backend (will see to it later)

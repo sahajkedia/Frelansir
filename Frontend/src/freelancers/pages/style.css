@@ -8,9 +8,9 @@ body {
   }
   
   .profile .grid-header {
-    background-color: #a700d3;
+    
     background-size: cover;
-    color: #f5f5f5;
+    
   }
   
   .profile img {
@@ -33,7 +33,7 @@ body {
   }
   
   .profile .grid-header p a {
-    color: #f5f5f5;
+    color: black;
   }
   
   .profile .grid-body {

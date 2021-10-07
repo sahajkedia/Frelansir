@@ -2,22 +2,34 @@ import React,{useEffect} from 'react'
 import Navbar from '../../common/components/Navbar'
 import img from './sahajgop.jpg'
 import './style.css'
-function FreelancerProfile(props) {
+import { useParams } from 'react-router-dom'
 
+
+function FreelancerProfile() {
+    const { fid } = useParams()
     
 
     useEffect(()=>{
-        const email = props.email
-        console.log(email)
+
+        const data = {
+            id:fid
+        }
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                         'Accept': 'application/json' },
-            body: JSON.stringify(email)
+            body: JSON.stringify(data)
       }
     
-        fetch('http://localhost:4000/api/frelansir/profile',requestOptions)
-        .then(res => console.log(res))
+      const handler = async () =>{
+        await fetch('http://localhost:4000/api/frelansir/profile',requestOptions)
+        .then(res => {
+            
+            console.log(res.json())
+        })
+      }
+       handler()
     },[])
 
   

@@ -1,28 +1,48 @@
 const Freelancer = require ('../models/F_Schema')
 const ProposalSchema = require('../models/ProposalSchema');
-
+const { v4: uuidv4 } = require('uuid');
+const JobPost = require('../models/JobSchema')
 const FrelansirProfile = async(req,res,next)=> {
-    const email = req.body
-    let freelancer;
+    const{ id } = req.body
+    console.log(id)
     
-    try{
-        freelancer = await Freelancer.findOne({email});
+    // try{
+    //     freelancer = await Freelancer.findOne({id});
+    //     console.log("Found")
+    //     console.log(freelancer)
+    // }
+    // catch(err){
+    //     console.log(err)
+    //     res.status(400).json({
+    //         "message":"could not complete your request"
+    //     })
+    //     return next(err)
+    // }
+    // if(!freelancer){
+    //     const error = res.status(400).json({
+    //         "message":"could not complete your request"
+    //     })
+    //     return next(error)
+    // }
+    // res.status(200).json({freelancer:freelancer})
+
+    
+    Freelancer.findOne({id}).exec((err,freelancer) => {
+        if(err){
+            return res.status(400).json({
+                "message":"could not complete your request"
+            })
+        }
+        else
+            { console.log(freelancer)
+                res.status(201).json({
+                freelancer:freelancer
+            })}
         
-    }
-    catch(err){
-        console.log(err)
-        res.status(400).json({
-            "message":"could not complete your request"
-        })
-        return next(err)
-    }
-    if(!freelancer){
-        const error = res.status(400).json({
-            "message":"could not complete your request"
-        })
-        return next(err)
-    }
-    res.json({freelancer:freelancer})
+       
+        
+    })
+
 }
 
 
@@ -40,6 +60,7 @@ const FrelansirSignup = async(req,res,next) => {
         if(!userExists){
 
             const newfreelancer = new Freelancer({
+                id : uuidv4(),
                 name : name,
                 email : email,
                 password : password,
@@ -85,7 +106,10 @@ const FrelansirSignin = async (req,res,next)=> {
             })
         }
 
+        
+
         else{
+            
                 if(freelancer.password !== password){
                     res.status(400).json({
                         "msg":"Wrong Credentials"
@@ -109,10 +133,30 @@ const FrelansirSignin = async (req,res,next)=> {
 const FrelansirDashboard = (req,res,next)=> { 
     return res.send("Keep Looking");
 }
+const JobPosting = (req,res,next) => {
+    
+}
 
 
+const Jobs = (req,res,next) => {
+    try
+    {
+        const data = JobPost.find()
+    }
+    catch(error){
+        res.json({
+            msg:"Not Possible"
+        })
+        console.log(error)
+    }
+    res.status(200).json({
+        data
+    })
+}
 
 exports.FrelansirProfile = FrelansirProfile;
 exports.FrelansirSignup= FrelansirSignup
 exports.FrelansirSignin = FrelansirSignin
 exports.FrelansirDashboard = FrelansirDashboard;
+exports.Jobs = Jobs
+exports.JobPosting = JobPosting

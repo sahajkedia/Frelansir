@@ -4,6 +4,7 @@ const FreelansirRoutes = require('./routes/FreelancerRoutes');
 const app = require('express')();
 const mongoose = require('mongoose');
 const bp = require('body-parser');
+
 app.use(bp.json());
 app.use(cors());
 app.use(function(req, res, next) {

@@ -3,7 +3,7 @@ import ProjectUI from './ProjectUI'
 import './Project.css'
 import Navbar from '../../../common/components/Navbar'
 function Projects() {
-
+    
     const DummyProjectInfo = [{
         id: "p1",
         title: "Need MERN stack developer to work on existing project",

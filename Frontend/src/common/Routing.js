@@ -25,7 +25,7 @@ import Signup from './Signup';
     <Route path="/frelansir/dashboard" >
       <FreelancerDashboard />
     </Route>
-    <Route path="/frelansir/profile" >
+    <Route path="/frelansir/:fid/profile" >
       <FreelancerProfile />
     </Route>
     <Route path="/frelansir/signin" >
@@ -34,19 +34,21 @@ import Signup from './Signup';
     <Route path="/frelansir/signup" >
       <Signup />
     </Route>
-    <Route path="/frelansir/projects" >
+    <Route path="/frelansir/:fid/projects" >
       <Projects />
     </Route>
-    <Route path="/frelansir/notifications" >
+    <Route path="/frelansir/:fid/notifications" >
       <Notifications />
     </Route>
-    <Route path="/client/dashboard" >
+    <Route path="/client/:cid/dashboard" >
       <ClientDashboard />
     </Route>
-    <Route path="/client/profile" >
+    <Route path="/client/:cid/profile" >
       <ClientProfile />
     </Route>
-    
+    <Route path="/client/:cid/notifications" >
+    <Notifications />
+    </Route>
     <Redirect to="/" />
     </Switch>
     </Router>

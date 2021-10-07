@@ -14,6 +14,14 @@ const JobPostSchema = new Schema({
     },
     file:{
         type:File,
+    },
+    project_type:{
+        type:String,
+        required:true,
+    },
+    amount: {
+        required:true,
+        type:Number,
     }
 }
 )

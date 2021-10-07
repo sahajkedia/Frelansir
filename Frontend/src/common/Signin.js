@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router'
-function Signin() {
+import FreelancerProfile from '../freelancers/pages/Profile'
 
-  
+
+function Signin() {
+  const [Email,setEmail] = useState('')
+  const [Red,setRed] = useState(false)
     const  submitHandler = (e) =>{
 
       e.preventDefault()
@@ -11,6 +14,7 @@ function Signin() {
         email:e.target.email.value,
         password:e.target.password.value
       }
+      setEmail(data.email)
 
     const requestOptions = {
       method: 'POST',
@@ -21,19 +25,19 @@ function Signin() {
 
  fetch('http://localhost:4000/api/frelansir/signin', requestOptions)
 .then(response => {
-  console.log(response)
-  if(response.status==='200'){
-    console.log("Signed In")
-    
+  if(response.status===200){
+    setRed(true)
   }
-
-  <Redirect to='/frelansir/profile' />
+  
+  
 });
 
-            
-        }
+} 
+    if(Red)
+          return <FreelancerProfile email={Email} />
+  
+    else return(
 
-       return(
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col" onSubmit={submitHandler}>
           <div className="w-full flex items-center justify-between">
 			<Link className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" to="/"> 
